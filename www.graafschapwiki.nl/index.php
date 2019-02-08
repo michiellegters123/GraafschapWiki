@@ -6,6 +6,10 @@
 
 <?php
 
+$GLOBALS['title'] = "GraafschapWiki";
+$GLOBALS['resFolder'] = "res/";
+$GLOBALS['headerItems'] = array();
+include "include/views/Header.php"
 
 ?>
 
@@ -14,5 +18,5 @@
 
 <?php
 
-
+include "include/views/Footer.php";
 ?>

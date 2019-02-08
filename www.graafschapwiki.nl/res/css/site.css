@@ -12,8 +12,13 @@ body
 	left: 0;
 }
 
+html, body
+{
+	margin: 0;
+	padding: 0;
+}
+
 .Container
 {
-	border: 1px solid black;
 	height: 100%;
 }
