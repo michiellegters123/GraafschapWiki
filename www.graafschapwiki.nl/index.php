@@ -13,8 +13,7 @@ include "include/views/Header.php"
 
 ?>
 
-<h1>noice</h1>
-
+    <h2>noice</h2>
 
 <?php
 
