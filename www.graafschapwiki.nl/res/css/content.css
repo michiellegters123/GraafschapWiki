@@ -1,0 +1,14 @@
+.Content
+{
+	padding: 20px;
+}
+
+.Title
+{
+	border-bottom: 1px solid grey;
+}
+
+.ContentText
+{
+	font-family: Linux Libertine, Georgia, Times, serif;
+}
