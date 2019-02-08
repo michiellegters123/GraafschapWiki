@@ -3,9 +3,20 @@
 	padding: 20px;
 }
 
-.Title
+.Title, .ParagraphTitle
 {
 	border-bottom: 1px solid grey;
+}
+
+.ParagraphTitle
+{
+	font-weight: normal;
+}
+
+.SubParagraphTitle
+{
+	font-weight: bolder;
+	font-size: 18px;
 }
 
 .ContentText
