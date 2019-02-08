@@ -21,5 +21,6 @@
     </head>
     <body>
         <div class="Container">
+            <div class="SideBar"></div>
 
             <div class="Content">
