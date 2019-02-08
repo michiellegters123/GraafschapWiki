@@ -19,7 +19,6 @@ $ATRICLE_CONTENTS = array($test);
 
 ?>
 
-
 <h1 class="Title"><?php echo $ARTICLE_TITLE; ?></h1>
 <p class="ContentText"><?php echo $ARTICLE_INDEX; ?></p>
 
