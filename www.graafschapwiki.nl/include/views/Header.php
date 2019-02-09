@@ -24,7 +24,7 @@
         <div class="Container">
                 <div class="SideBar">                       <!--Start sidebar-->
                 <div class="DivLogo">
-                    <img src="<?phpecho $GLOBALS["resFolder"] . "img/GCLogo.png"   ?>">
+                    <img src="<?php echo $GLOBALS["resFolder"] . "img/logoGC.png"   ?>">
                 </div>
                 <div class="DivLinkjes">
                     <ul>
