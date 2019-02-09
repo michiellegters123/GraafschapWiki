@@ -24,7 +24,7 @@
         <div class="Container">
                 <div class="SideBar">                       <!--Start sidebar-->
                 <div class="DivLogo">
-                    <img src="/../GraafschapWiki/www.graafschapwiki.nl/include/images/logoGC.png">
+                    <img src="<?phpecho $GLOBALS["resFolder"] . "img/GCLogo.png"   ?>">
                 </div>
                 <div class="DivLinkjes">
                     <ul>
