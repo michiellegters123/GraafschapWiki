@@ -11,6 +11,7 @@
 
         <script src="<?php echo $GLOBALS["resFolder"] . "js/Site.js" ?>"></script>
         <link rel="stylesheet" href="<?php echo $GLOBALS["resFolder"] . "css/site.css" ?>">
+        <link rel="stylesheet" href="<?php echo $GLOBALS["resFolder"] . "css/std.css" ?>">
 
         <?php
         foreach ($GLOBALS['headerItems'] as $item)
@@ -21,5 +22,21 @@
     </head>
     <body>
         <div class="Container">
+                <div class="SideBar">                       <!--Start sidebar-->
+                <div class="DivLogo">
+                    <img src="/../GraafschapWiki/www.graafschapwiki.nl/include/images/logoGC.png">
+                </div>
+                <div class="DivLinkjes">
+                    <ul>
+                        <li><a href="#">Linkje 1</a></li>
+                    </ul>
+                </div>
+            </div>                                          <!--einde sidebar-->
+            <div class="DivHead">                           <!--Start Head-->
+                <ul class="UlHeader">
+                    <li class="LiHeader"><a href="#">Inlogggen</a></li>      <!--href naar inlog-->
+                    <li class="LiHeader">Niet ingelogd</li>           <!--Inlognaam met php-->
+                </ul>
+            </div>                                          <!--Einde head-->
 
             <div class="Content">
