@@ -31,11 +31,12 @@
                         <li><a href="#">Linkje 1</a></li>
                     </ul>
                 </div>
-            </div>                                          <!--einde sidebar-->
+            </div>    <!--einde sidebar-->
+
             <div class="DivHead">                           <!--Start Head-->
-                <ul class="UlHeader">
-                    <li class="LiHeader"><a href="#">Inlogggen</a></li>      <!--href naar inlog-->
-                    <li class="LiHeader">Niet ingelogd</li>           <!--Inlognaam met php-->
+                <ul class="ArticleOption ArticleAction">
+                    <li class="Active">Read</li>
+                    <li class="Inactive">Edit</li>
                 </ul>
             </div>                                          <!--Einde head-->
 
