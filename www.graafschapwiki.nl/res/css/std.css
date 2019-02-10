@@ -37,8 +37,9 @@
 .DivHead
 {
 	margin-left: 171.5px;
-	width: 100%;
+	width: auto;
 	height: 80px;
+
 
 	border-bottom: 1px solid #a6d6f8;
 
@@ -97,6 +98,8 @@
 .Inactive
 {
 	border-bottom: #a6d6f8 0 solid;
+
+	color: blue;
 
 	background: -moz-linear-gradient(top, #ffffff 30px, #a6d6f8 100px) !important;
 	background: -webkit-linear-gradient(top, #ffffff 30px, #a6d6f8 100px) !important;;
