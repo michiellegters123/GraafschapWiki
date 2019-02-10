@@ -10,6 +10,10 @@ body
 	bottom: 0;
 	right: 0;
 	left: 0;
+
+	background: -moz-linear-gradient(top, #ffffff 40px, #f6f6f6 80px);
+	background: -webkit-linear-gradient(top, #ffffff 60px, #f6f6f6 80px);
+	background: linear-gradient(to bottom, #ffffff 60px, #f6f6f6 80px);
 }
 
 html, body

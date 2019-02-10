@@ -11,6 +11,7 @@
 
         <script src="<?php echo $GLOBALS["resFolder"] . "js/Site.js" ?>"></script>
         <link rel="stylesheet" href="<?php echo $GLOBALS["resFolder"] . "css/site.css" ?>">
+        <link rel="stylesheet" href="<?php echo $GLOBALS["resFolder"] . "css/content.css" ?>">
         <link rel="stylesheet" href="<?php echo $GLOBALS["resFolder"] . "css/std.css" ?>">
 
 

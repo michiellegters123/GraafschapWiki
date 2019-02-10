@@ -3,15 +3,6 @@
 	float: left;
 	width: 170px;
 	height: 100%;
-
-	background: -moz-linear-gradient(top, #ffffff 40px, #f6f6f6 80px);
-	background: -webkit-linear-gradient(top, #ffffff 60px, #f6f6f6 80px);
-	background: linear-gradient(to bottom, #ffffff 60px, #f6f6f6 80px);
-
-	border-right: 1.5px solid transparent;
-	-moz-border-image: -moz-linear-gradient(top, #ffffff 30px, #a6d6f8 80px);
-	-webkit-border-image: -webkit-linear-gradient(top, #ffffff 30px, #a6d6f8 80px);
-	border-image-slice: 1;
 }
 
 .DivLogo
@@ -39,14 +30,7 @@
 	margin-left: 171.5px;
 	width: auto;
 	height: 80px;
-
-
 	border-bottom: 1px solid #a6d6f8;
-
-	background: -moz-linear-gradient(top, #ffffff 40px, #f6f6f6 80px);
-	background: -webkit-linear-gradient(top, #ffffff 60px, #f6f6f6 80px);
-	background: linear-gradient(to bottom, #ffffff 60px, #f6f6f6 80px);
-
 	position: relative;
 
 }
@@ -55,7 +39,7 @@
 {
 	position: absolute;
 	bottom: 0;
-	left: 0;
+	left: 2.5px;
 	margin: 0;
 	margin-bottom: -1px;
 
@@ -110,5 +94,6 @@
 
 .ArticleAction
 {
+	padding-left: 0;
 }
 

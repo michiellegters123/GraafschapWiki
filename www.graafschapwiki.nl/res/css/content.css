@@ -2,6 +2,10 @@
 {
 	padding: 20px;
 	margin-left: 170px;
+	background: white;
+
+	border-left: 1px solid #a6d6f8;
+	border-bottom: 1px solid #a6d6f8;
 }
 
 .Title, .ParagraphTitle
