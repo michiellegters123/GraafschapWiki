@@ -30,6 +30,7 @@
                 </div>
                 <div class="DivLinkjes">
                     <ul>
+                        <li><a href="http://localhost/GraafschapWiki/www.graafschapwiki.nl">Homepage</a></li>
                         <li><a href="http://localhost/GraafschapWiki/www.graafschapwiki.nl/Page/Login/inloggen.php">Inloggen</a></li>
                     </ul>
                 </div>

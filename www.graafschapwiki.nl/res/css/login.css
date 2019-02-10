@@ -46,15 +46,21 @@ input
 	width: 204px;
 	height: 35px;
 	border-radius: 4px;
-	border: none;
+	border: 0;
+;
 	background-color: #3366cc;
 	color: white;
+
 }
 
 .A_FormText
 {
 	text-align: center;
 	margin-left: 30px;
-
+	text-decoration: none;
+}
+.A_FormText:hover
+{
+	text-decoration: underline;
 }
 
