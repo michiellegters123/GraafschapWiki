@@ -13,6 +13,7 @@
         <link rel="stylesheet" href="<?php echo $GLOBALS["resFolder"] . "css/site.css" ?>">
         <link rel="stylesheet" href="<?php echo $GLOBALS["resFolder"] . "css/std.css" ?>">
 
+
         <?php
         foreach ($GLOBALS['headerItems'] as $item)
         {
@@ -28,7 +29,7 @@
                 </div>
                 <div class="DivLinkjes">
                     <ul>
-                        <li><a href="#">Linkje 1</a></li>
+                        <li><a href="http://localhost/GraafschapWiki/www.graafschapwiki.nl/Page/Login/inloggen.php">Inloggen</a></li>
                     </ul>
                 </div>
             </div>    <!--einde sidebar-->

@@ -5,7 +5,6 @@
 
 
 <?php
-
 $GLOBALS['title'] = "GraafschapWiki";
 $GLOBALS['resFolder'] = "res/";
 $GLOBALS['headerItems'] = array();
