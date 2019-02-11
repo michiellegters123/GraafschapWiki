@@ -11,7 +11,7 @@
     <div class="ContainerLogin">
         <div class="divContent">
             <h2>Aanmelden</h2>
-            <form action="Login.php" action = "../../include/views/Header.php" method="post">
+            <form action="Login.php" method="post">
                 <p>Gebruikersnaam</p>
                 <input type="text" name="username" placeholder="Gebruikersnaam">
                 <p>Wachtwoord</p>
