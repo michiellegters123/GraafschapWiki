@@ -39,7 +39,7 @@
                 <ul class="AccountBar">
                     <li>Niet aangemeld</li>
                     <li><a href="http://localhost/GraafschapWiki/www.graafschapwiki.nl/Page/Login/inloggen.php">Inloggen</a></li>
-                    <li>Regristreren</li>
+                    <li><a href="http://localhost/GraafschapWiki/www.graafschapwiki.nl/Page/Login/registreren.php">Regristreren</a></li>
                 </ul>
                 <ul class="ArticleOption ArticleAction">
                     <li class="Active">Read</li>
