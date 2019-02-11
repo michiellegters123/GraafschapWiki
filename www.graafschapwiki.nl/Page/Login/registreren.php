@@ -33,7 +33,7 @@ include "../../include/views/Header.php"
             <input type="email" name="email" placeholder="Email" required>
             <p>Wachtwoord</p>
             <input type="password" name="password" placeholder="Wachtwoord" required><br><br>
-            <input type="submit" value="Registreren" style="width: 204px">
+            <input type="submit" value="Registreren" class="ButtonLogin" style="width: 204px">
         </form>
     </div>
 </div>
