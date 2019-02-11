@@ -26,14 +26,14 @@ include "../../include/views/Header.php"
 <div class="ContainerLogin">
     <div class="divContent">
         <h2>Aanmelden</h2>
-        <form>
+        <form action="Register.php" method="post">
             <p>Gebruikersnaam</p>
-            <input type="text" placeholder="Gebruikersnaam" required>
+            <input type="text" name="username" placeholder="Gebruikersnaam" required>
             <p>Email</p>
-            <input type="email" placeholder="Email" required>
+            <input type="email" name="email" placeholder="Email" required>
             <p>Wachtwoord</p>
-            <input type="password" placeholder="Wachtwoord" required><br><br>
-            <input type="submit" value="Registreren" class="ButtonLogin">
+            <input type="password" name="password" placeholder="Wachtwoord" required><br><br>
+            <input type="submit" value="Registreren" style="width: 204px">
         </form>
     </div>
 </div>
