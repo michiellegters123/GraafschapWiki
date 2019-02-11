@@ -11,11 +11,11 @@
     <div class="ContainerLogin">
         <div class="divContent">
             <h2>Aanmelden</h2>
-            <form>
+            <form action="Login.php" method="post">
                 <p>Gebruikersnaam</p>
-                <input type="text" placeholder="Gebruikersnaam">
+                <input type="text" name="username" placeholder="Gebruikersnaam">
                 <p>Wachtwoord</p>
-                <input type="text" placeholder="Wachtwoord"><br>
+                <input type="password" name="password" placeholder="Wachtwoord"><br>
                 <input type="submit" value="Aanmelden" class="ButtonLogin">
             </form>
             <a href="#" class="A_FormText">Wachtwoord vergeten</a>
