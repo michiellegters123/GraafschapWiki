@@ -41,11 +41,10 @@ class DataBase
 
     public function runSQL(string $querry)
     {
-        $result = $this->m_connection->multi_query($querry);
+        $result = $this->m_connection->query($querry);
 
         if (!$result)
         {
-            echo mysqli_error($this->m_connection);
             return null;
         }
         else
