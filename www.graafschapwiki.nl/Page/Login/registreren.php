@@ -4,6 +4,21 @@ $GLOBALS['resFolder'] = "../../res/";
 $GLOBALS['headerItems'] = array("<link rel=\"stylesheet\" href=\"../../res/css/login.css\">");
 include "../../include/views/Header.php"
 ?>
+<style>
+    .ButtonLogin
+    {
+        margin-bottom: 10px;
+        width: 204px;
+        height: 35px;
+        border-radius: 4px;
+        border: 0;
+    ;
+        background-color: #3366cc;
+        color: white;
+
+    }
+</style>
+
 
 <div>
 
@@ -18,7 +33,7 @@ include "../../include/views/Header.php"
             <input type="email" placeholder="Email" required>
             <p>Wachtwoord</p>
             <input type="password" placeholder="Wachtwoord" required><br><br>
-            <input type="submit" value="Registreren" style="width: 204px">
+            <input type="submit" value="Registreren" class="ButtonLogin">
         </form>
     </div>
 </div>
