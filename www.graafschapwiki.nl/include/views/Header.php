@@ -31,12 +31,16 @@
                 <div class="DivLinkjes">
                     <ul>
                         <li><a href="http://localhost/GraafschapWiki/www.graafschapwiki.nl">Homepage</a></li>
-                        <li><a href="http://localhost/GraafschapWiki/www.graafschapwiki.nl/Page/Login/inloggen.php">Inloggen</a></li>
                     </ul>
                 </div>
             </div>    <!--einde sidebar-->
 
-            <div class="DivHead">                           <!--Start Head-->
+            <div class="DivHead"><!--Start Head-->
+                <ul class="AccountBar">
+                    <li>Niet aangemeld</li>
+                    <li><a href="http://localhost/GraafschapWiki/www.graafschapwiki.nl/Page/Login/inloggen.php">Inloggen</a></li>
+                    <li>Regristreren</li>
+                </ul>
                 <ul class="ArticleOption ArticleAction">
                     <li class="Active">Read</li>
                     <li class="Inactive">Edit</li>

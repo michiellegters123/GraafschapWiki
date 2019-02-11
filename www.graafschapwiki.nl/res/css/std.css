@@ -40,6 +40,23 @@
 
 }
 
+.AccountBar
+{
+	float: right;
+	list-style: none;
+	margin-top: 0;
+}
+
+.AccountBar li
+{
+	display: inline-block;
+	color: #0645ad;
+	font-size: 0.75em;
+	font-family: sans-serif;
+	padding-top: 5px;
+	padding-right: 10px;
+}
+
 .ArticleOption
 {
 	position: absolute;
@@ -51,12 +68,10 @@
 	font-family: sans-serif;
 }
 
-
 .ArticleOption li
 {
 	padding-top: 40px;
 	display: inline-block;
-
 
 	border-right: 1.5px solid;
 	-moz-border-image: -moz-linear-gradient(bottom, #a6d6f8 10px, #ffffff 50px);
