@@ -42,3 +42,30 @@ class Paragraph
         }
     }
 }
+
+class Article
+{
+    private $title;
+    private $paragraphs = array();
+
+    function __construct($title)
+    {
+        $this->title = $title;
+    }
+
+    function addParagraph($p)
+    {
+        array_push($this->paragraphs, $p);
+    }
+
+    function write()
+    {
+        echo "<h1>$this->title</h1>";
+        foreach ($this->paragraphs as $item)
+        {
+            $item->write();
+        }
+    }
+
+
+}

@@ -3,39 +3,24 @@
 require_once("Paragraph.php");
 
 
-$ARTICLE_TITLE = "PHP";
 
 //set header
-$GLOBALS['title'] = "GraafschapWiki - " . $ARTICLE_TITLE;
+$GLOBALS['title'] = "GraafschapWiki";
 $GLOBALS['resFolder'] = "../../res/";
 $GLOBALS['headerItems'] = array("<link rel=\"stylesheet\" href=\"../../res/css/content.css\">");
 include "../../include/views/Header.php";
+//CONTENT
 
-//conents
-$test = new Paragraph("yeetest");
-$test->addSub(new SubParagraph("history", "fsdjfsldkajflkasdjfdsagay"));
-$test->addSub(new SubParagraph("boi", "sadfsadfaksdfklsdjflkasdjflkjads"));
+$testArticle = new Article("PHP");
 
-//set data
-$ARTICLE_INDEX = "dfasdfasdfasdfasdfsdfdsfsa0";
-$ATRICLE_CONTENTS = array($test);
+$info = new Paragraph("info");
+$info->addSub(new SubParagraph("de VOC", "GECOLONIZEERD"));
+$info->addSub(new SubParagraph("opgericht", "20 maart 1602"));
 
+$testArticle->addParagraph($info);
 
-?>
+$testArticle->write();
 
-<h1 class="Title"><?php echo $ARTICLE_TITLE; ?></h1>
-<p class="ContentText"><?php echo $ARTICLE_INDEX; ?></p>
-
-<?php
-
-foreach ($ATRICLE_CONTENTS as $paragraph)
-{
-    $paragraph->write();
-}
-
-?>
-
-<?php
-
+//END CONTENT
 include "../../include/views/Footer.php";
 ?>
