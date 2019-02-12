@@ -17,14 +17,14 @@ include "../../include/views/Header.php";
 $dbo = ArticleDatabase::getInstance();
 
 
-$testArticle = new Article("Verhalen");
+$testArticle = new Article($dbo->getTitle(1));
 
+$paragraphs = $dbo->getParagraphs(1);
 
-$info = new Paragraph("Over Leeraren");
-$info->addSub(new SubParagraph( $dbo->getTitle(), $dbo->getIntro(), $dbo->getId()));
-
-
-$testArticle->addParagraph($info);
+foreach ($paragraphs as $paragraph)
+{
+    $testArticle->addParagraph($paragraph);
+}
 
 $testArticle->write();
 

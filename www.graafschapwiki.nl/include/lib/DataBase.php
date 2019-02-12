@@ -21,6 +21,7 @@ class DataBase
     private function createConnection()
     {
         $connection = new mysqli($this->m_serverName, $this->m_username, $this->m_password);
+        $connection->set_charset("utf8");
 
         if ($connection->connect_error)
         {
