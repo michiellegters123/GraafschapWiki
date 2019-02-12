@@ -1,8 +1,7 @@
 <?php
 
-require_once("Paragraph.php");
+require_once("../../include/lib/Article.php");
 require_once ("../../include/lib/ArticleDatabase.php");
-
 
 
 
@@ -15,17 +14,7 @@ include "../../include/views/Header.php";
 
 
 $dbo = ArticleDatabase::getInstance();
-
-
-$testArticle = new Article($dbo->getTitle(1));
-
-$paragraphs = $dbo->getParagraphs(1);
-
-foreach ($paragraphs as $paragraph)
-{
-    $testArticle->addParagraph($paragraph);
-}
-
+$testArticle = $dbo->getArticle($_GET["article"]);
 $testArticle->write();
 
 //END CONTENT

@@ -1,6 +1,6 @@
 <?php
 require_once("DataBase.php");
-require_once("../../Page/Article/Paragraph.php"); //TODO: paragraph.php naar lib/
+require_once("Article.php");
 
 class ArticleDatabase extends DataBase
 {
@@ -22,21 +22,21 @@ class ArticleDatabase extends DataBase
         return self::$instance;
     }
 
-    public function getId($id)
+    public function getArticle($id)
     {
-        $result = $this->runSQL("SELECT articleid FROM article WHERE articleid = '$id'");
-        if($result)
+        $article = new Article($this->getTitle($id));
+
+        $paragraphs = $this->getParagraphs($id);
+
+        foreach ($paragraphs as $paragraph)
         {
-            $title = $result->fetch_assoc()['articleid'];
-            return $title;
+            $article->addParagraph($paragraph);
         }
-        else
-        {
-            return "fail lol";
-        }
+
+        return $article;
     }
 
-   public function getTitle($id)
+   private function getTitle($id)
    {
        $result = $this->runSQL("SELECT title FROM article WHERE articleid = '$id'");
        if($result)
@@ -49,7 +49,8 @@ class ArticleDatabase extends DataBase
            return "fail lol";
        }
    }
-   public function getIntro($id)
+
+   private function getIntro($id)
    {
        $result = $this->runSQL("SELECT intro FROM article WHERE articleid = '$id'");
        if($result)
@@ -63,7 +64,7 @@ class ArticleDatabase extends DataBase
        }
    }
 
-   public function getParagraphs($id)
+   private function getParagraphs($id)
    {
        $result = $this->runSQL("SELECT title, paragraphid FROM paragraph WHERE article = '$id'");
        if($result)
