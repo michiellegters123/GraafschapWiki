@@ -2,6 +2,8 @@
 
 session_start();
 
+require_once($GLOBALS["resFolder"] . "../include/config/Config.php");
+
 ?>
 
 <!DOCTYPE html>
@@ -42,16 +44,30 @@ session_start();
                 <ul class="AccountBar">
                     <li>
                         <?php
-                        if(isset($_SESSION["username"]))
-                            echo $_SESSION["username"];
-                        else if(isset($_SESSION["email"]))
-                            echo $_SESSION["email"];
+                        if (isset($_SESSION["user"]))
+                        {
+                            if (isset($_SESSION["user"]["username"]))
+                                echo $_SESSION["user"]["username"];
+                            else
+                                echo $_SESSION["user"]["email"];
+                        }
                         else
                             echo "niet ingeloged"
                         ?>
                     </li>
                     <li><a href="http://localhost/GraafschapWiki/www.graafschapwiki.nl/Page/Login/inloggen.php">Inloggen</a></li>
                     <li><a href="http://localhost/GraafschapWiki/www.graafschapwiki.nl/Page/Login/registreren.php">Regristreren</a></li>
+                    <?php
+
+                    if (isset($_SESSION["user"]))
+                    {
+                        if ($_SESSION["user"]["privilege"] >= $privilege["admin"])
+                        {
+                            echo "<li><a>Admin Interface</a></li>";
+                        }
+                    }
+
+                    ?>
                 </ul>
                 <ul class="ArticleOption ArticleAction">
                     <li class="Active">Read</li>

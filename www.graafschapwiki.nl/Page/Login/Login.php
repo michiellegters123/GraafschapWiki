@@ -44,8 +44,8 @@ if(isset($_POST["email"]) && isset($_POST["password"]))
     if($dbo->tryLogin($_POST["email"], $_POST["password"]))
     {
         loginSucess();
-        $_SESSION["username"] = $dbo->getUsername($_POST["email"]);
-        $_SESSION["email"] = $_POST["email"];
+        $user = $dbo->getUser($_POST["email"]);
+        $_SESSION["user"] = $user;
     }
     else
     {
