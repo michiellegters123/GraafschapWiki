@@ -92,4 +92,23 @@ class ArticleDatabase extends DataBase
        }
    }
 
+   function getArticleIdList()
+   {
+       $result = $this->runSQL("SELECT articleid, title, intro FROM article");
+       $ids = array();
+
+       while ($row = $result->fetch_assoc())
+       {
+           $article = array
+           (
+               "title" => $row["title"],
+               "id" => $row["articleid"],
+               "intro" => explode(".", $row["intro"],2)[0]. "."
+           );
+           array_push($ids, $article);
+       }
+
+       return $ids;
+   }
+
 }
