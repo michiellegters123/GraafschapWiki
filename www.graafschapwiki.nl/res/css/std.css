@@ -117,3 +117,12 @@
 	padding-left: 0;
 }
 
+.SearchBar
+{
+	position: absolute;
+	right: 5px;
+	bottom: 5px;
+	width: 20%;
+	height: 20px;
+}
+

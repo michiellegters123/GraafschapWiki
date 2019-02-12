@@ -53,6 +53,10 @@ session_start();
                     <li><a href="http://localhost/GraafschapWiki/www.graafschapwiki.nl/Page/Login/inloggen.php">Inloggen</a></li>
                     <li><a href="http://localhost/GraafschapWiki/www.graafschapwiki.nl/Page/Login/registreren.php">Regristreren</a></li>
                 </ul>
+
+                <form method="get" action="<?php echo $GLOBALS["resFolder"] . "../Page/Search/Search.php" ?>">
+                    <input class="SearchBar" type="text" name="s" title="Search" placeholder="Search GraafschapWiki">
+                </form>
                 <ul class="ArticleOption ArticleAction">
                     <li class="Active">Read</li>
                     <li class="Inactive">Edit</li>
