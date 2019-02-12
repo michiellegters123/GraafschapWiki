@@ -11,7 +11,7 @@ CREATE TABLE users
 );
 
 
-CREATE TABLE atricle
+CREATE TABLE article
 (
   articleid INT(11) PRIMARY KEY AUTO_INCREMENT,
   title VARCHAR(512)  NOT NULL,
@@ -21,12 +21,14 @@ CREATE TABLE atricle
 CREATE TABLE paragraph
 (
   paragraphid INT(11) PRIMARY KEY AUTO_INCREMENT,
+  article INT(11),
   title varchar(521) NOT NULL
 );
 
 CREATE TABLE subparagraph
 (
   subparagraphid INT(11) PRIMARY KEY AUTO_INCREMENT,
+  paragraph INT(11),
   content TEXT(1),
   title varchar(521) NOT NULL
 );
