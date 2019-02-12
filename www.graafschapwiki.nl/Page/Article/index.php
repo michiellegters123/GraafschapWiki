@@ -1,8 +1,7 @@
 <?php
 
 require_once("../../include/lib/Article.php");
-require_once ("../../include/lib/ArticleDatabase.php");
-
+require_once("../../include/lib/ArticleDatabase.php");
 
 
 //set header
@@ -12,10 +11,19 @@ $GLOBALS['headerItems'] = array("<link rel=\"stylesheet\" href=\"../../res/css/c
 include "../../include/views/Header.php";
 //CONTENT
 
-
-$dbo = ArticleDatabase::getInstance();
-$testArticle = $dbo->getArticle($_GET["article"]);
-$testArticle->write();
+if (isset($_GET["article"]))
+{
+    $dbo = ArticleDatabase::getInstance();
+    $testArticle = $dbo->getArticle($_GET["article"]);
+    if ($testArticle)
+        $testArticle->write();
+    else
+        echo "<h1>Article not found!</h1>";g
+}
+else
+{
+    echo "<h1>Article not found!</h1>";
+}
 
 //END CONTENT
 include "../../include/views/Footer.php";
