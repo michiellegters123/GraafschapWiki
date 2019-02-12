@@ -46,12 +46,14 @@ class Paragraph
 class Article
 {
     private $title;
+    private $intro;
     private $paragraphs = array();
 
 
-    function __construct($title)
+    function __construct($title, $intro = "")
     {
         $this->title = $title;
+        $this->intro = $intro;
     }
 
     function addParagraph($p)
@@ -62,6 +64,7 @@ class Article
     function write()
     {
         echo "<h1>$this->title</h1>";
+        echo "<p>$this->intro</p>";
         foreach ($this->paragraphs as $item)
         {
             $item->write();

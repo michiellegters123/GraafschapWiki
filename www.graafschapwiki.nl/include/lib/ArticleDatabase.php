@@ -24,7 +24,7 @@ class ArticleDatabase extends DataBase
 
     public function getArticle($id)
     {
-        $article = new Article($this->getTitle($id));
+        $article = new Article($this->getTitle($id), $this->getIntro($id));
 
         $paragraphs = $this->getParagraphs($id);
 
