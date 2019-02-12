@@ -18,7 +18,7 @@
                 <input type="password" name="password" placeholder="Wachtwoord"><br>
                 <input type="submit" value="Aanmelden" class="ButtonLogin">
             </form>
-            <a href="#" class="A_FormText">Wachtwoord vergeten</a>
+            <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="A_FormText">Wachtwoord vergeten</a>
         </div>
     </div>
 
