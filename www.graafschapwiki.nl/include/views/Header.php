@@ -40,7 +40,16 @@ session_start();
 
             <div class="DivHead"><!--Start Head-->
                 <ul class="AccountBar">
-                    <li><?php echo $_SESSION["username"] ?></li>
+                    <li>
+                        <?php
+                        if(isset($_SESSION["username"]))
+                            echo $_SESSION["username"];
+                        else if(isset($_SESSION["email"]))
+                            echo $_SESSION["email"];
+                        else
+                            echo "niet ingeloged"
+                        ?>
+                    </li>
                     <li><a href="http://localhost/GraafschapWiki/www.graafschapwiki.nl/Page/Login/inloggen.php">Inloggen</a></li>
                     <li><a href="http://localhost/GraafschapWiki/www.graafschapwiki.nl/Page/Login/registreren.php">Regristreren</a></li>
                 </ul>

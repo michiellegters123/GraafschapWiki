@@ -28,10 +28,10 @@ include "../../include/views/Header.php"
         <h2>Aanmelden</h2>
         <form action="Register.php" method="post">
             <p>Gebruikersnaam</p>
-            <input type="text" name="username" placeholder="Gebruikersnaam" required>
-            <p>Email</p>
+            <input type="text" name="username" placeholder="Gebruikersnaam">
+            <p>Email *</p>
             <input type="email" name="email" placeholder="Email" required>
-            <p>Wachtwoord</p>
+            <p>Wachtwoord *</p>
             <input type="password" name="password" placeholder="Wachtwoord" required><br><br>
             <input type="submit" value="Registreren" class="ButtonLogin" style="width: 204px">
         </form>

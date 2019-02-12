@@ -34,11 +34,12 @@ function loginFail($reason)
 
 }
 
-if(isset($_POST["username"]) && isset($_POST["password"]) && isset($_POST["email"]))
+if(isset($_POST["password"]) && isset($_POST["email"]))
 {
     $dbo = UsersDatabase::getInstance();
 
-    $result = $dbo->register($_POST['username'], $_POST["email"], $_POST["password"]);
+    $username = isset($_POST['username']) ? $_POST['username'] : "";
+    $result = $dbo->register($username, $_POST["email"], $_POST["password"]);
     if($result === true)
         loginSucess();
     else
