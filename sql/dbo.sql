@@ -11,7 +11,7 @@ CREATE TABLE users
 );
 
 
-CREATE TABLE atricle
+CREATE TABLE article
 (
   articleid INT(11) PRIMARY KEY AUTO_INCREMENT,
   title VARCHAR(512)  NOT NULL,

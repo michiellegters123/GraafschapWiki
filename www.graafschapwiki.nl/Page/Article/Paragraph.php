@@ -48,6 +48,7 @@ class Article
     private $title;
     private $paragraphs = array();
 
+
     function __construct($title)
     {
         $this->title = $title;
@@ -66,6 +67,7 @@ class Article
             $item->write();
         }
     }
+
 
 
 }
