@@ -18,7 +18,7 @@ if (isset($_GET["article"]))
     if ($testArticle)
         $testArticle->write();
     else
-        echo "<h1>Article not found!</h1>";g
+        echo "<h1>Article not found!</h1>";
 }
 else
 {
