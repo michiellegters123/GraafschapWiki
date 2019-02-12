@@ -1,6 +1,8 @@
 <?php
 
 require_once("Paragraph.php");
+require_once ("../../include/lib/ArticleDatabase.php");
+
 
 
 
@@ -11,13 +13,18 @@ $GLOBALS['headerItems'] = array("<link rel=\"stylesheet\" href=\"../../res/css/c
 include "../../include/views/Header.php";
 //CONTENT
 
-$testArticle = new Article("PHP");
 
-$info = new Paragraph("info");
-$info->addSub(new SubParagraph("de VOC", "GECOLONIZEERD"));
-$info->addSub(new SubParagraph("opgericht", "20 maart 1602"));
+$dbo = ArticleDatabase::getInstance();
 
-$testArticle->addParagraph($info);
+
+$testArticle = new Article($dbo->getTitle(1));
+
+$paragraphs = $dbo->getParagraphs(1);
+
+foreach ($paragraphs as $paragraph)
+{
+    $testArticle->addParagraph($paragraph);
+}
 
 $testArticle->write();
 
