@@ -34,14 +34,15 @@ $GLOBALS['resFolder'] = "../../res/";
 $GLOBALS['headerItems'] = array();
 
 
-if(isset($_POST["username"]) && isset($_POST["password"]))
+if(isset($_POST["email"]) && isset($_POST["password"]))
 {
 
     $dbo = UsersDatabase::getInstance();
-    if($dbo->tryLogin($_POST["username"], $_POST["password"]))
+    if($dbo->tryLogin($_POST["email"], $_POST["password"]))
     {
         loginSucess();
-        $_SESSION["username"] = $_POST["username"];
+        $_SESSION["username"] = $dbo->getUsername($_POST["email"]);
+        $_SESSION["email"] = $_POST["email"];
     }
     else
     {

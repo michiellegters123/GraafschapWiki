@@ -12,8 +12,8 @@
         <div class="divContent">
             <h2>Aanmelden</h2>
             <form action="Login.php" method="post">
-                <p>Gebruikersnaam</p>
-                <input type="text" name="username" placeholder="Gebruikersnaam">
+                <p>Email</p>
+                <input type="email" name="email" placeholder="Email">
                 <p>Wachtwoord</p>
                 <input type="password" name="password" placeholder="Wachtwoord"><br>
                 <input type="submit" value="Aanmelden" class="ButtonLogin">

@@ -63,11 +63,27 @@ class UsersDatabase extends DataBase
 
 
         $hash = $this->generateHash($password);
-        $result = $this->runSQL("INSERT INTO users(`username`, `email`, `password`) VALUES ('$username', '$email', '$hash')");
+
+        if ($username != "")
+            $result = $this->runSQL("INSERT INTO users(`username`, `email`, `password`) VALUES ('$username', '$email', '$hash')");
+        else
+            $result = $this->runSQL("INSERT INTO users(`email`, `password`) VALUES ('$email', '$hash')");
 
         if ($result)
             return true;
         else
             return "kut voor je";
+    }
+
+    public function getUsername($email)
+    {
+        $result = $this->runSQL("SELECT email, username FROM users WHERE email = '$email'");
+        if ($result != null)
+        {
+            $row = $result->fetch_assoc();
+            return $row["username"];
+        }
+
+        return "";
     }
 }
