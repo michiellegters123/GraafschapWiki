@@ -2,6 +2,9 @@
 
 require_once("../../include/lib/UsersDatabase.php");
 
+$_SESSION["username"] = null;
+$_SESSION["email"] = null;
+
 function loginSucess()
 {
     include "../../include/views/Header.php";
