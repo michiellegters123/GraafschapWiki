@@ -85,4 +85,18 @@ class UsersDatabase extends DataBase
 
         return "";
     }
+
+    public function getUsers()
+    {
+        $result = $this->runSQL("SELECT userid, privilege, username, email FROM users ORDER BY privilege DESC");
+
+        $userArray = array();
+
+        while ($row = $result->fetch_assoc())
+        {
+            array_push($userArray, $row);
+        }
+        return $userArray;
+    }
+
 }
