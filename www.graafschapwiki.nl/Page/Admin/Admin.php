@@ -1,6 +1,6 @@
 <?php
 
-$GLOBALS['title'] = "GraafschapWiki - Login";
+$GLOBALS['title'] = "GraafschapWiki - Admin Interfae";
 $GLOBALS['resFolder'] = "../../res/";
 $GLOBALS['headerItems'] = array();
 include "../../include/views/Header.php";
@@ -14,7 +14,7 @@ if(isset($_SESSION["user"]))
 }
 else
 {
-    die("you are not logged in");
+    die("<h1>you are not logged in<h1>");
 }
 
 

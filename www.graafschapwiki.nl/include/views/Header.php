@@ -56,14 +56,14 @@ require_once($GLOBALS["resFolder"] . "../include/config/Config.php");
                         ?>
                     </li>
                     <li><a href="http://localhost/GraafschapWiki/www.graafschapwiki.nl/Page/Login/inloggen.php">Inloggen</a></li>
-                    <li><a href="http://localhost/GraafschapWiki/www.graafschapwiki.nl/Page/Login/registreren.php">Regristreren</a></li>
+                    <li><a href="http://localhost/GraafschapWiki/www.graafschapwiki.nl/Page/Login/registreren.php">Aanmelden</a></li>
                     <?php
 
                     if (isset($_SESSION["user"]))
                     {
                         if ($_SESSION["user"]["privilege"] >= $privilege["admin"])
                         {
-                            echo "<li><a>Admin Interface</a></li>";
+                            echo "<li><a href='http://localhost/GraafschapWiki/www.graafschapwiki.nl/Page/Admin/Admin.php'>Admin Interface</a></li>";
                         }
                     }
 
