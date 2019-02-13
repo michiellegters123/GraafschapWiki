@@ -86,9 +86,9 @@ class UsersDatabase extends DataBase
         return "";
     }
 
-    public function getUsers()
+    public function getUsers($email = "")
     {
-        $result = $this->runSQL("SELECT userid, privilege, username, email, banned FROM users ORDER BY privilege DESC");
+        $result = $this->runSQL("SELECT userid, privilege, username, email, banned FROM users WHERE email LIKE '%$email%' ORDER BY privilege DESC");
 
         $userArray = array();
 
