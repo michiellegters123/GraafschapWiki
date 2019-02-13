@@ -43,9 +43,17 @@ if(isset($_POST["email"]) && isset($_POST["password"]))
     $dbo = UsersDatabase::getInstance();
     if($dbo->tryLogin($_POST["email"], $_POST["password"]))
     {
-        loginSucess();
         $user = $dbo->getUser($_POST["email"]);
-        $_SESSION["user"] = $user;
+
+        if(!$user["banned"])
+        {
+            loginSucess();
+            $_SESSION["user"] = $user;
+        }
+        else
+        {
+            loginFail("You are banned! yer a cunt");
+        }
     }
     else
     {
