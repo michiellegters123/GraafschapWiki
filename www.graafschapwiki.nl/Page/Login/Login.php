@@ -53,7 +53,7 @@ if(isset($_POST["email"]) && isset($_POST["password"]))
         else
         {
             loginFail("You are banned! yer a cunt");
-            session_abort();
+            $_SESSION["user"] = null;
         }
     }
     else
