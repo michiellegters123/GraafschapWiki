@@ -53,11 +53,10 @@ class UsersDatabase extends DataBase
 
     public function register($username, $email, $password)
     {
-        $result = $this->runSQL("SELECT email, username FROM users WHERE email = '$email' OR username = '$username'");
+        $result = $this->getUser($email);
         if ($result != null)
         {
-            $row = $result->fetch_assoc();
-            if (!is_null($row['email']) || !is_null($row['username']))
+            if (!is_null($result['email']) || !is_null($result['username']))
                 return "username or email already taken";
         }
 
@@ -75,13 +74,13 @@ class UsersDatabase extends DataBase
             return "kut voor je";
     }
 
-    public function getUsername($email)
+    public function getUser($email)
     {
-        $result = $this->runSQL("SELECT email, username FROM users WHERE email = '$email'");
+        $result = $this->runSQL("SELECT * FROM users WHERE email = '$email'");
         if ($result != null)
         {
             $row = $result->fetch_assoc();
-            return $row["username"];
+            return $row;
         }
 
         return "";

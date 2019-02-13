@@ -38,7 +38,7 @@ class ArticleDatabase extends DataBase
 
    private function getTitle($id)
    {
-       $result = $this->runSQL("SELECT title FROM article WHERE articleid = '$id'");
+       $result = $this->runSQL("SELECT title FROM article WHERE articleid = '$id';");
        if($result)
        {
            $title = $result->fetch_assoc()['title'];
