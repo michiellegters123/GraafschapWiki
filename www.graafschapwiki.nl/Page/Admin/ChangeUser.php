@@ -15,9 +15,14 @@ $email = $_POST["email"];
 $sql = "UPDATE `users` SET `privilege`= '$rank',`username`='$username',`email`='$email' WHERE userid = '$id'";
 $result = UsersDatabase::getInstance()->runSQL($sql);
 
-if($result)
+if ($result)
 {
-    echo "<h1>succes</h1>";
+    ?>
+    <script>
+        window.history.back();
+    </script>
+
+    <?php
 }
 else
 {
