@@ -63,7 +63,7 @@ require_once($GLOBALS["resFolder"] . "../include/config/Config.php");
                     {
                         if ($_SESSION["user"]["privilege"] >= $privilege["admin"])
                         {
-                            echo "<li><a href='http://localhost/GraafschapWiki/www.graafschapwiki.nl/Page/Admin/Admin.php'>Admin Interface</a></li>";
+                            echo "<li><a href='http://localhost/GraafschapWiki/www.graafschapwiki.nl/Page/Admin/adminInterface.php'>Admin Interface</a></li>";
                         }
                     }
 
