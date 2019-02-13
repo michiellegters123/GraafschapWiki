@@ -11,8 +11,11 @@ $id = $_POST["id"];
 $rank = $_POST["rank"];
 $username = $_POST["username"];
 $email = $_POST["email"];
+$banned = isset($_POST["banned"]) ? 1 : 0;
 
-$sql = "UPDATE `users` SET `privilege`= '$rank',`username`='$username',`email`='$email' WHERE userid = '$id'";
+
+
+$sql = "UPDATE `users` SET `banned` = $banned, `privilege`= '$rank',`username`='$username',`email`='$email' WHERE userid = '$id'";
 $result = UsersDatabase::getInstance()->runSQL($sql);
 
 if($result)
@@ -21,7 +24,7 @@ if($result)
 }
 else
 {
-    echo "<h1>Er is niet bijgewerkt</h1>";
+    echo "<h1>keal doe normaal</h1>";
 }
 include "../../include/views/Footer.php";
 ?>

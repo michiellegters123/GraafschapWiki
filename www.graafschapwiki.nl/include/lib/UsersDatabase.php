@@ -88,7 +88,7 @@ class UsersDatabase extends DataBase
 
     public function getUsers()
     {
-        $result = $this->runSQL("SELECT userid, privilege, username, email FROM users ORDER BY privilege DESC");
+        $result = $this->runSQL("SELECT userid, privilege, username, email, banned FROM users ORDER BY privilege DESC");
 
         $userArray = array();
 
