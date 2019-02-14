@@ -16,6 +16,13 @@ class SubParagraph
         echo "<p class='ContentText SubParagraphTitle'>$this->title</p>";
         echo "<p class='ContentText'>$this->text</p>";
     }
+
+    public function writeForm($number)
+    {
+        echo "<input type='text' class='ContentText SubParagraphTitle' value='". $this->title ."'><br>";
+        echo "<textarea class='ContentText'>$this->text</textarea><br>";
+        return $number + 2;
+    }
 }
 
 class Paragraph
@@ -40,6 +47,20 @@ class Paragraph
         {
             $item->write();
         }
+    }
+
+    public function writeForm($number)
+    {
+        echo "<input type='text' class='ParagraphTitle' value='". $this->title ."'><br>";
+        $number++;
+        foreach ($this->subParagraphs as $item)
+        {
+            $number += $item->writeForm($number);
+        }
+        echo "<br>";
+
+
+        return $number;
     }
 }
 
@@ -68,14 +89,32 @@ class Article
 
     function write()
     {
-        echo "<h1>$this->title</h1>";
-        echo "<p>$this->intro</p>";
+        echo "<h1 class='ArticleTitle'>$this->title</h1>";
+        echo "<p class='Intro'>$this->intro</p>";
         foreach ($this->paragraphs as $item)
         {
             $item->write();
         }
     }
 
+    function writeForm()
+    {
+
+        echo "<input type='text' class='ArticleTitle' value='". $this->title ."'><br>";
+        echo "<textarea class='Intro'>$this->intro</textarea><br>";
+        echo "<br>";
+        $number = 2;
+        foreach ($this->paragraphs as $item)
+        {
+            $number += $item->writeForm($number);
+        }
+
+        echo "
+        <form id='ArticleForm'>
+            <input type='submit' value='Submit Change'>
+        </form>
+        ";
+    }
 
 
 }
