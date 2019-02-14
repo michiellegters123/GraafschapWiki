@@ -20,7 +20,7 @@ class SubParagraph
     public function writeForm($number)
     {
         echo "<input type='text' class='ContentText SubParagraphTitle' value='". $this->title ."'><br>";
-        echo "<textarea class='ContentText'>$this->text</textarea><br>";
+        echo "<textarea class='ContentText EditArea'>$this->text</textarea><br>";
         return $number + 2;
     }
 }
@@ -90,7 +90,7 @@ class Article
     function write()
     {
         echo "<h1 class='ArticleTitle'>$this->title</h1>";
-        echo "<p class='Intro'>$this->intro</p>";
+        echo "<p class='Intro ContentText'>$this->intro</p>";
         foreach ($this->paragraphs as $item)
         {
             $item->write();
@@ -101,7 +101,7 @@ class Article
     {
 
         echo "<input type='text' class='ArticleTitle' value='". $this->title ."'><br>";
-        echo "<textarea class='Intro'>$this->intro</textarea><br>";
+        echo "<textarea class='Intro ContentText EditArea'>$this->intro</textarea><br>";
         echo "<br>";
         $number = 2;
         foreach ($this->paragraphs as $item)

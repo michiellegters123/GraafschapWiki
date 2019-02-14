@@ -28,3 +28,10 @@
 {
 	font-family: Linux Libertine, Georgia, Times, serif;
 }
+
+.EditArea
+{
+	max-width: 80%;
+	width: 1200px;
+	resize: none;
+}
