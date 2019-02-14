@@ -19,8 +19,8 @@ class SubParagraph
 
     public function writeForm($number)
     {
-        echo "<input type='text' class='ContentText SubParagraphTitle' value='". $this->title ."'><br>";
-        echo "<textarea class='ContentText EditArea'>$this->text</textarea><br>";
+        echo "<input type='text' form='ArticleForm' name='title' class='ContentText SubParagraphTitle' value='". $this->title ."'><br>";
+        echo "<textarea form='ArticleForm' class='ContentText EditArea'>$this->text</textarea><br>";
         return $number + 2;
     }
 }
@@ -51,7 +51,7 @@ class Paragraph
 
     public function writeForm($number)
     {
-        echo "<input type='text' class='ParagraphTitle' value='". $this->title ."'><br>";
+        echo "<input type='text' form='ArticleForm' class='ParagraphTitle' value='". $this->title ."'><br>";
         $number++;
         foreach ($this->subParagraphs as $item)
         {
@@ -100,8 +100,8 @@ class Article
     function writeForm()
     {
 
-        echo "<input type='text' class='ArticleTitle' value='". $this->title ."'><br>";
-        echo "<textarea class='Intro ContentText EditArea'>$this->intro</textarea><br>";
+        echo "<input type='text' form='ArticleForm' class='ArticleTitle' value='". $this->title ."'><br>";
+        echo "<textarea form='ArticleForm' name='intro' class='Intro ContentText EditArea'>$this->intro</textarea><br>";
         echo "<br>";
         $number = 2;
         foreach ($this->paragraphs as $item)
@@ -110,7 +110,7 @@ class Article
         }
 
         echo "
-        <form id='ArticleForm'>
+        <form id='ArticleForm'  action='articleSubmit.php' method='post'>
             <input type='submit' value='Submit Change'>
         </form>
         ";
