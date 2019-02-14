@@ -1,7 +1,6 @@
 <?php
-$GLOBALS['title'] = "GraafschapWiki";
-$GLOBALS['resFolder'] = "../../res/";
-$GLOBALS['headerItems'] = array("<link rel=\"stylesheet\" href=\"../../res/css/login.css\">");
+$PAGE_TITLE = "GraafschapWiki - Registreren";
+$HEADER_ITEMS = array("<link rel=\"stylesheet\" href=\"../../res/css/login.css\">");
 include "../../include/views/Header.php"
 ?>
 <style>

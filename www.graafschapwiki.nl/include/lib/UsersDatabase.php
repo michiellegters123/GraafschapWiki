@@ -40,14 +40,32 @@ class UsersDatabase extends DataBase
 
     public function tryLogin($email, $password)
     {
-        $result = $this->runSQL("SELECT password FROM users WHERE email = '$email'");
+        $result = $this->runSQL("SELECT * FROM users WHERE email = '$email'");
         if ($result)
         {
-            return $this->verify($row = $result->fetch_assoc()['password'], $password);
+            $row = $result->fetch_assoc();
+            $isPwrdCorrect = $this->verify($row['password'], $password);
+            if($isPwrdCorrect)
+            {
+                if($row["banned"] == 1)
+                {
+                    return "You are banned";
+                }
+                else
+                {
+                    session_start();
+                    $_SESSION["user"] = $row;
+                    return true;
+                }
+            }
+            else
+            {
+                return "invalid password";
+            }
         }
         else
         {
-            return "invalid email";
+            return "unknown email";
         }
     }
 
@@ -97,6 +115,31 @@ class UsersDatabase extends DataBase
             array_push($userArray, $row);
         }
         return $userArray;
+    }
+
+    public function refreshCurrentUser()
+    {
+        if (isset($_SESSION["user"]))
+        {
+            $id = $_SESSION["user"]["userid"];
+            $result = $this->runSQL("SELECT * FROM users WHERE userid = $id");
+            if($result)
+            {
+                $row = $result->fetch_assoc();
+                if($row["banned"] == 1)
+                {
+                    $_SESSION["user"] = null;
+                }
+                else
+                {
+                    $_SESSION["user"] = $row;
+                }
+            }
+            else
+            {
+                $_SESSION["user"] = null;
+            }
+        }
     }
 
 }

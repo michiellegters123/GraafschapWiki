@@ -1,7 +1,5 @@
 <?php
-$GLOBALS['title'] = "GraafschapWiki - Admin Interfae";
-$GLOBALS['resFolder'] = "../../res/";
-$GLOBALS['headerItems'] = array();
+$PAGE_TITLE = "GraafschapWiki - Admin Interfae";
 include "../../include/views/Header.php";
 
 include "../../include/views/Admin.php";

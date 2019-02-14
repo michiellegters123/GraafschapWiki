@@ -1,8 +1,24 @@
 <?php
 
-session_start();
+if (session_status() == PHP_SESSION_NONE)
+{
+    session_start();
+}
 
-require_once($GLOBALS["resFolder"] . "../include/config/Config.php");
+
+if(!isset($WWW_ROOT))
+    $WWW_ROOT = "../../";
+
+if(!isset($PAGE_TITLE))
+    $PAGE_TITLE = "GraafschapWiki";
+
+if(!isset($HEADER_ITEMS))
+    $HEADER_ITEMS = array();
+
+require_once($WWW_ROOT . "include/config/Config.php");
+require_once($WWW_ROOT . "include/lib/UsersDatabase.php");
+$dbo = UsersDatabase::getInstance();
+$dbo->refreshCurrentUser();
 
 ?>
 
@@ -10,16 +26,16 @@ require_once($GLOBALS["resFolder"] . "../include/config/Config.php");
 <html>
     <head>
 
-        <title><?php echo $GLOBALS["title"]; ?></title>
+        <title><?php echo $PAGE_TITLE ?></title>
 
         <script src="<?php echo $GLOBALS["resFolder"] . "js/Site.js" ?>"></script>
-        <link rel="stylesheet" href="<?php echo $GLOBALS["resFolder"] . "css/site.css" ?>">
-        <link rel="stylesheet" href="<?php echo $GLOBALS["resFolder"] . "css/content.css" ?>">
-        <link rel="stylesheet" href="<?php echo $GLOBALS["resFolder"] . "css/std.css" ?>">
+        <link rel="stylesheet" href="<?php echo $WWW_ROOT . "res/css/site.css" ?>">
+        <link rel="stylesheet" href="<?php echo $WWW_ROOT . "res/css/content.css" ?>">
+        <link rel="stylesheet" href="<?php echo $WWW_ROOT . "res/css/std.css" ?>">
 
 
         <?php
-        foreach ($GLOBALS['headerItems'] as $item)
+        foreach ($HEADER_ITEMS as $item)
         {
             echo $item;
         }
@@ -30,11 +46,11 @@ require_once($GLOBALS["resFolder"] . "../include/config/Config.php");
         <div class="Container">
             <div class="SideBar">                       <!--Start sidebar-->
                 <div class="DivLogo">
-                    <img src="<?php echo $GLOBALS["resFolder"] . "img/logoGC.png" ?>">
+                    <img src="<?php echo $WWW_ROOT . "res/img/logoGC.png" ?>">
                 </div>
                 <div class="DivLinkjes">
                     <ul>
-                        <li><a href="http://localhost/GraafschapWiki/www.graafschapwiki.nl">Homepage</a></li>
+                        <li><a href="<?php echo  $WWW_ROOT; ?> ">Homepage</a></li>
                     </ul>
                 </div>
             </div>    <!--einde sidebar-->
@@ -42,7 +58,7 @@ require_once($GLOBALS["resFolder"] . "../include/config/Config.php");
 
             <div class="DivHead"><!--Start Head-->
                 <ul class="AccountBar">
-                    <li>
+                    <li style="color: #3e4242">
                         <?php
                         if (isset($_SESSION["user"]))
                         {
@@ -55,15 +71,15 @@ require_once($GLOBALS["resFolder"] . "../include/config/Config.php");
                             echo "niet ingeloged"
                         ?>
                     </li>
-                    <li><a href="http://localhost/GraafschapWiki/www.graafschapwiki.nl/Page/Login/inloggen.php">Inloggen</a></li>
-                    <li><a href="http://localhost/GraafschapWiki/www.graafschapwiki.nl/Page/Login/registreren.php">Aanmelden</a></li>
+                    <li><a href=" <?php echo $WWW_ROOT . "Page/Login/inloggen.php"; ?> ">Inloggen</a></li>
+                    <li><a href="<?php echo $WWW_ROOT . "Page/Login/registreren.php"; ?> ">Aanmelden</a></li>
                     <?php
 
                     if (isset($_SESSION["user"]))
                     {
                         if ($_SESSION["user"]["privilege"] >= $privilege["admin"])
                         {
-                            echo "<li><a href='http://localhost/GraafschapWiki/www.graafschapwiki.nl/Page/Admin/adminInterface.php'>Admin Interface</a></li>";
+                            echo "<li><a href='". $WWW_ROOT . "Page/Admin/admininterface.php" ."'>Admin Interface</a></li>";
                         }
                     }
 

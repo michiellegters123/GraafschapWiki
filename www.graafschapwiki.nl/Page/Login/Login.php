@@ -2,9 +2,6 @@
 
 require_once("../../include/lib/UsersDatabase.php");
 
-$_SESSION["username"] = null;
-$_SESSION["email"] = null;
-
 function loginSucess()
 {
     include "../../include/views/Header.php";
@@ -32,32 +29,19 @@ function loginFail($reason)
     include "../../include/views/Footer.php";
 }
 
-$GLOBALS['title'] = "GraafschapWiki - Login";
-$GLOBALS['resFolder'] = "../../res/";
-$GLOBALS['headerItems'] = array();
-
 
 if(isset($_POST["email"]) && isset($_POST["password"]))
 {
 
     $dbo = UsersDatabase::getInstance();
-    if($dbo->tryLogin($_POST["email"], $_POST["password"]))
-    {
-        $user = $dbo->getUser($_POST["email"]);
+    $ans = $dbo->tryLogin($_POST["email"], $_POST["password"]);
 
-        if(!$user["banned"])
-        {
-            loginSucess();
-            $_SESSION["user"] = $user;
-        }
-        else
-        {
-            loginFail("You are banned! yer a cunt");
-            $_SESSION["user"] = null;
-        }
+    if($ans === true)
+    {
+        loginSucess();
     }
     else
     {
-        loginFail("Badlogin info");
+        loginFail($ans);
     }
 }

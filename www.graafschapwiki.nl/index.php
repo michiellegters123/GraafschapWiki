@@ -4,9 +4,9 @@ require_once("include/lib/ArticleDatabase.php")
 
 
 <?php
-$GLOBALS['title'] = "GraafschapWiki";
-$GLOBALS['resFolder'] = "res/";
-$GLOBALS['headerItems'] = array("<link href='res/css/frontPage.css' rel='stylesheet' type='text/css'>");
+$WWW_ROOT = "";
+$PAGE_TITLE = "GraafschapWiki";
+$HEADER_ITEMS = array("<link href='res/css/frontPage.css' rel='stylesheet' type='text/css'>");
 include "include/views/Header.php"
 
 ?>

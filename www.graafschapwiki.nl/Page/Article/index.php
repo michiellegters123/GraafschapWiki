@@ -5,16 +5,17 @@ require_once("../../include/lib/ArticleDatabase.php");
 
 
 //set header
-$GLOBALS['title'] = "GraafschapWiki";
-$GLOBALS['resFolder'] = "../../res/";
-$GLOBALS['headerItems'] = array("<link rel=\"stylesheet\" href=\"../../res/css/content.css\">");
-include "../../include/views/Header.php";
-//CONTENT
+$HEADER_ITEMS = array("<link rel=\"stylesheet\" href=\"../../res/css/content.css\">");
 
 if (isset($_GET["article"]))
 {
     $dbo = ArticleDatabase::getInstance();
     $testArticle = $dbo->getArticle($_GET["article"]);
+
+    $PAGE_TITLE = "GraafschapWiki - " . $testArticle->getTitle();
+    include "../../include/views/Header.php";
+    //CONTENT
+
     if ($testArticle)
         $testArticle->write();
     else
@@ -22,6 +23,9 @@ if (isset($_GET["article"]))
 }
 else
 {
+    include "../../include/views/Header.php";
+    //CONTENT
+
     echo "<h1>Article not found!</h1>";
 }
 

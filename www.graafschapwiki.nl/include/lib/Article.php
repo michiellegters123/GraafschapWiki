@@ -61,6 +61,11 @@ class Article
         array_push($this->paragraphs, $p);
     }
 
+    public function getTitle()
+    {
+        return $this->title;
+    }
+
     function write()
     {
         echo "<h1>$this->title</h1>";

@@ -3,10 +3,6 @@
 require_once("../../include/lib/UsersDatabase.php");
 
 
-$GLOBALS['title'] = "GraafschapWiki - Login";
-$GLOBALS['resFolder'] = "../../res/";
-$GLOBALS['headerItems'] = array();
-
 include "../../include/views/Header.php";
 
 
