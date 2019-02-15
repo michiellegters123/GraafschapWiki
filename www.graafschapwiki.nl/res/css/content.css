@@ -13,9 +13,16 @@
 	border-bottom: 1px solid grey;
 }
 
+.Title
+{
+	font-size: 22px;
+	font-weight: bold;
+}
+
 .ParagraphTitle
 {
 	font-weight: normal;
+	font-size: 22px;
 }
 
 .SubParagraphTitle

@@ -1,5 +1,5 @@
 <?php
-$PAGE_TITLE = "GraafschapWiki - Admin Interfae";
+$PAGE_TITLE = "GraafschapWiki - admin Interfae";
 include "../../include/views/Header.php";
 
 include "../../include/views/Admin.php";

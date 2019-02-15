@@ -8,7 +8,7 @@ class UsersDatabase extends DataBase
 
     public function __construct()
     {
-        parent::__construct("localhost", "gcwiki", "root", "");
+        parent::__construct();
     }
 
     public static function getInstance()

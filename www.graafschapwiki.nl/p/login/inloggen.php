@@ -1,5 +1,5 @@
 <?php
-$PAGE_TITLE = "GraafschapWiki - Login";
+$PAGE_TITLE = "GraafschapWiki - login";
 $HEADER_ITEMS = array("<link rel=\"stylesheet\" href=\"../../res/css/login.css\">");
 include "../../include/views/Header.php"
 ?>
@@ -10,7 +10,7 @@ include "../../include/views/Header.php"
 <div class="ContainerLogin">
     <div class="divContent">
         <h2>Aanmelden</h2>
-        <form action="Login.php" method="post">
+        <form action="login.php" method="post">
             <p>Email</p>
             <input type="email" name="email" placeholder="Email">
             <p>Wachtwoord</p>

@@ -18,7 +18,7 @@ echo "<table class='TableLink'>";
 foreach ($article as $item)
 {
     echo "<tr>";
-    echo "<td><a class='LinkjesFront' href='Page/Article/index.php?article=". $item["id"] ."'>". $item["title"] . "</a></td>";
+    echo "<td><a class='LinkjesFront' href='Page/article/index.php?article=". $item["id"] ."'>". $item["title"] . "</a></td>";
     echo "<td>".$item["intro"]. "</td>";
     echo "</tr>";
 }

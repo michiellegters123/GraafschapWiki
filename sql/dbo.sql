@@ -16,6 +16,9 @@ CREATE TABLE article
 (
   articleid INT(11) PRIMARY KEY AUTO_INCREMENT,
   title VARCHAR(512)  NOT NULL,
+  target INT(11) DEFAULT -1,
+  author INT(11),
+  verified BIT(1) DEFAULT 1,
   intro TEXT
 )DEFAULT CHARSET=utf8;
 
@@ -23,6 +26,7 @@ CREATE TABLE paragraph
 (
   paragraphid INT(11) PRIMARY KEY AUTO_INCREMENT,
   article INT(11),
+  pindex INT(2),
   title varchar(521) NOT NULL
 )DEFAULT CHARSET=utf8;
 
@@ -31,6 +35,7 @@ CREATE TABLE subparagraph
   subparagraphid INT(11) PRIMARY KEY AUTO_INCREMENT,
   paragraph INT(11),
   content TEXT,
+  sindex INT(2),
   title varchar(521) NOT NULL
 )DEFAULT CHARSET=utf8;
 

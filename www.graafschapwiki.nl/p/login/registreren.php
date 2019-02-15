@@ -25,7 +25,7 @@ include "../../include/views/Header.php"
 <div class="ContainerLogin">
     <div class="divContent">
         <h2>Aanmelden</h2>
-        <form action="Register.php" method="post">
+        <form action="register.php" method="post">
             <p>Gebruikersnaam</p>
             <input type="text" name="username" placeholder="Gebruikersnaam">
             <p>Email *</p>

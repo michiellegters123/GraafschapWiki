@@ -8,7 +8,7 @@ class ArticleDatabase extends DataBase
 
     public function __construct()
     {
-        parent::__construct("localhost", "gcwiki", "root", "");
+        parent::__construct();
     }
 
     public static function getInstance()
@@ -94,7 +94,7 @@ class ArticleDatabase extends DataBase
 
    function getArticleIdList()
    {
-       $result = $this->runSQL("SELECT articleid, title, intro FROM article");
+       $result = $this->runSQL("SELECT articleid, title, intro FROM article WHERE verified = 1");
        $ids = array();
 
        while ($row = $result->fetch_assoc())
@@ -111,4 +111,8 @@ class ArticleDatabase extends DataBase
        return $ids;
    }
 
+   function deleteArticle($id)
+   {
+
+   }
 }

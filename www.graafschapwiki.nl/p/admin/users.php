@@ -11,7 +11,7 @@ $email = isset($_GET["q"]) ? $_GET["q"] : "";
 $users = UsersDatabase::getInstance()->getUsers($email);
 ?>
 
-<form method='get' action="Users.php">
+<form method='get' action="users.php">
     <input type='text' name='q' style='width: 200px' placeholder='Zoeken (Deel van Email)'>
     <input type='submit' value='Zoeken'>
 </form>
@@ -35,7 +35,7 @@ if (count($users) > 0)
 
         foreach ($users as $user)
         {
-            echo "<tr><form action='ChangeUser.php' method='post'>";
+            echo "<tr><form action='changeuser.php' method='post'>";
             echo "<td><input type='text' name='id' style='pointer-events: none; background-color: lightgray' value='" . $user["userid"] . " '></td>";
             echo "<td><input type='text' name='rank' value='" . $user["privilege"] . "'></td>";
             echo "<td><input type='text' name='username' value='" . $user["username"] . "'></td>";

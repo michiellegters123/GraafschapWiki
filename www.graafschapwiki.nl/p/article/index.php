@@ -24,14 +24,14 @@ if (isset($_GET["article"]))
     if ($testArticle)
         $testArticle->write();
     else
-        echo "<h1>Article not found!</h1>";
+        echo "<h1>article not found!</h1>";
 }
 else
 {
     include "../../include/views/Header.php";
     //CONTENT
 
-    echo "<h1>Article not found!</h1>";
+    echo "<h1>article not found!</h1>";
 }
 
 //END CONTENT

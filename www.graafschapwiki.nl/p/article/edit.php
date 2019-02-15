@@ -5,6 +5,7 @@ require_once("../../include/lib/ArticleDatabase.php");
 require_once("../../include/config/Config.php");
 
 //set header
+$PAGE_TITLE = "GraafschapWiki - edit";
 $HEADER_ITEMS = array("<link rel=\"stylesheet\" href=\"../../res/css/content.css\">",
     "<script src='../../res/js/Edit.js'></script>");
 $PAGE_OPTIONS = "
@@ -24,19 +25,19 @@ if(isset($_SESSION["user"]))
 
 
         if ($testArticle)
-            $testArticle->writeForm();
+            $testArticle->writeForm($_GET["article"]);
         else
-            echo "<h1>Article not found!</h1>";
+            echo "<h1>article not found!</h1>";
     }
     else
     {
 
-        echo "<h1>Article not found!</h1>";
+        echo "<h1>article not found!</h1>";
     }
 }
 else
 {
-    echo "<h1>Login to edit articles</h1>";
+    echo "<h1>login to edit articles</h1>";
 }
 
 //END CONTENT

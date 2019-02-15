@@ -8,7 +8,8 @@ class DataBase
     private $m_database;
     private $m_connection;
 
-    public function __construct(string $serverName, string $database, string $username, string $password)
+    public function __construct(string $serverName = "localhost", string $database = "gcwiki",
+        string $username = "root", string $password = "")
     {
         $this->m_serverName = $serverName;
         $this->m_username = $username;
@@ -16,6 +17,11 @@ class DataBase
         $this->m_database = $database;
 
         $this->m_connection = $this->createConnection();
+    }
+
+    public function getConnection()
+    {
+        return $this->m_connection;
     }
 
     private function createConnection()
