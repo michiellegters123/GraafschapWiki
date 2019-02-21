@@ -37,15 +37,14 @@ if (count($users) > 0)
         {
             echo "<tr><form action='changeuser.php' method='post'>";
             echo "<td><input type='text' name='id' style='pointer-events: none; background-color: lightgray' value='" . $user["userid"] . " '></td>";
-            echo "<td><select name='rank' value='".$user['privilege']." '>
-                  <option " . ($user['privilege'] == 0 ? "selected" : "") . " value='0'>Normale gebruiker</option>
-                  <option " . ($user['privilege'] == 1 ? "selected" : "") . " value='1'>Andere normale gebruiker</option>
-                  <option " . ($user['privilege'] == 2 ? "selected" : "") . " value='2'>Editor</option>
-                  <option " . ($user['privilege'] == 3 ? "selected" : "") . " value='3'>Andere editor</option>
-                  <option " . ($user['privilege'] == 4 ? "selected" : "") . " value='4'>Nog een Andere editor</option>
-                  <option " . ($user['privilege'] == 5 ? "selected" : "") . " value='5'>Admin</option>
-    
-                  </select></td>";
+            echo "<td><select name='rank' value='".$user['privilege']." '>";
+
+            foreach ($privilege as $key => $rank)
+            {
+                echo "<option " . ($user['privilege'] == $rank ? "selected" : "") . ">$key</option>";
+            }
+
+            echo " </select></td>";
             echo "<td><input type='text' name='username' value='" . $user["username"] . "'></td>";
             echo "<td><input type='text' name='email' value='" . $user["email"] . "'></td>";
 

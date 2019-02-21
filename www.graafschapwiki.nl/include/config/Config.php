@@ -3,5 +3,5 @@
 $privilege = array
 (
     "admin" => 5,
-    "edit" => 2
+    "writer" => 2
 );

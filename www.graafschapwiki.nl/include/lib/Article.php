@@ -26,7 +26,7 @@ class SubParagraph
 
     public function writeForm($number, $pNum)
     {
-        echo "<input type='text' name='S_T_" . $pNum . "_" . $number . "' form='ArticleForm' class='ContentText SubParagraphTitle' value='" . $this->title . "'><br>";
+        echo "<input type='text' name='S_T_" . $pNum . "_" . $number . "' form='ArticleForm' class='subparagraph ContentText SubParagraphTitle' value='" . $this->title . "'><br>";
         echo "<textarea form='ArticleForm' name='S_C_" . $pNum . "_" . $number . "' class='ContentText EditArea'>$this->text</textarea><br>";
         return $number + 1;
     }
