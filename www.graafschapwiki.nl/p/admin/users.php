@@ -41,7 +41,7 @@ if (count($users) > 0)
 
             foreach ($privilege as $key => $rank)
             {
-                echo "<option " . ($user['privilege'] == $rank ? "selected" : "") . ">$key</option>";
+                echo "<option value='$rank' " . ($user['privilege'] == $rank ? "selected" : "") . ">$key</option>";
             }
 
             echo " </select></td>";

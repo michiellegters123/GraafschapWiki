@@ -15,7 +15,7 @@ $banned = isset($_POST["banned"]) ? 1 : 0;
 
 
 
-$sql = "UPDATE `users` SET `banned` = $banned, `privilege`= '$rank',`username`='$username',`email`='$email' WHERE userid = '$id'";
+$sql = "UPDATE `users` SET `banned` = $banned, `privilege`= $rank,`username`='$username',`email`='$email' WHERE userid = '$id'";
 $result = UsersDatabase::getInstance()->runSQL($sql);
 
 if ($result)
@@ -29,7 +29,7 @@ if ($result)
 }
 else
 {
-    echo "<h1>keal doe normaal</h1>";
+    echo mysqli_error(UsersDatabase::getInstance()->getConnection());
 }
 include "../../include/views/Footer.php";
 ?>
