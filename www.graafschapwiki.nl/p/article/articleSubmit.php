@@ -46,13 +46,11 @@ foreach ($_POST as $key => $item)
 }
 
 $dbo = ArticleDatabase::getInstance();
-$querry =  $newArticle->generateQuerry($_SESSION["user"]["privilege"] >= $privilege["edit"] ? true : false, $_POST["id"]);
+$isApproved = $_SESSION["user"]["privilege"] >= $privilege["edit"] ? true : false;
+//$querry =  $newArticle->generateQuerry($isApproved, $isApproved ? -1 : $_POST["id"]);
+$querry =  $newArticle->generateQuerry(false, $_POST["id"], $_SESSION["user"]["userid"]);
 $result = $dbo->getConnection()->multi_query($querry);
 
-echo  mysqli_error($dbo->getConnection());
-echo "<br>";
-echo "<br>";
-echo $querry;
 
 if($result)
 {
@@ -61,6 +59,7 @@ if($result)
 else
 {
     echo "<h1>fail</h1>";
+    echo  mysqli_error($dbo->getConnection());
 }
 
 include "../../include/views/Footer.php";

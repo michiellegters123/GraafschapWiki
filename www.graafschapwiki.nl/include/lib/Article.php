@@ -108,11 +108,11 @@ class Article
         return $this->title;
     }
 
-    function generateQuerry($verified, $target)
+    function generateQuerry($verified, $target, $author)
     {
         $verified = $verified ? 1 : 0;
-        $sql = "INSERT INTO article(title, intro, verified, target)
-                    VALUES('$this->title', '$this->intro', $verified, $target);
+        $sql = "INSERT INTO article(title, intro, verified, target, author)
+                    VALUES('$this->title', '$this->intro', $verified, $target, '$author');
                     ";
 
         foreach ($this->paragraphs as $item)

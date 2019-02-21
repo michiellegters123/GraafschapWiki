@@ -89,12 +89,6 @@ $dbo->refreshCurrentUser();
 
                     ?>
                 </ul>
-                <!--
-                <ul class="ArticleOption ArticleAction">
-                    <li class="Active">Read</li>
-                    <li class="Inactive">Edit</li>
-                </ul>
-                -->
                 <ul class="ArticleOption ArticleAction">
                     <?php
                     echo $PAGE_OPTIONS;

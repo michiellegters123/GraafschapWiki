@@ -104,6 +104,18 @@ class UsersDatabase extends DataBase
         return "";
     }
 
+    public function getUserById($id)
+    {
+        $result = $this->runSQL("SELECT * FROM users WHERE userid = $id");
+        if ($result != null)
+        {
+            $row = $result->fetch_assoc();
+            return $row;
+        }
+
+        return "";
+    }
+
     public function getUsers($email = "")
     {
         $result = $this->runSQL("SELECT userid, privilege, username, email, banned FROM users WHERE email LIKE '%$email%' ORDER BY privilege DESC");

@@ -9,6 +9,7 @@ include "../../include/views/Admin.php";
 ?>
     <ul>
         <li><a href="users.php">Users</a></li>
+        <li><a href="aproving.php">Article Aproving</a></li>
     </ul>
 
 <?php

@@ -15,12 +15,33 @@ $PAGE_OPTIONS = "
     ";
 include "../../include/views/Header.php";
 
+
+
 if(isset($_SESSION["user"]))
 {
 
     if (isset($_GET["article"]))
     {
+        //check if article has target
         $dbo = ArticleDatabase::getInstance();
+        $target = $dbo->getArticleId($_GET["article"]);
+
+        if($target["target"] != -1)
+        {
+            echo "<h1>Original</h1>";
+            echo "<br>";
+
+            $dbo->getArticle($target["target"])->write();
+
+            echo "<br>";
+            echo "<h1>Edited</h1>";
+            echo "<br>";
+            echo "<br>";
+            echo "<br>";
+
+        }
+
+
         $testArticle = $dbo->getArticle($_GET["article"]);
 
 

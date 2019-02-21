@@ -111,6 +111,38 @@ class ArticleDatabase extends DataBase
        return $ids;
    }
 
+   function getUnverifiedArticles()
+   {
+       $result = $this->runSQL("SELECT articleid, title, intro, author FROM article WHERE verified = 0");
+       $ids = array();
+
+       while ($row = $result->fetch_assoc())
+       {
+           $article = array
+           (
+               "title" => $row["title"],
+               "id" => $row["articleid"],
+               "author" => $row["author"],
+               "intro" => explode(".", $row["intro"],2)[0]. "."
+           );
+           array_push($ids, $article);
+       }
+
+       return $ids;
+   }
+
+   function getArticleId($id)
+   {
+       $result = $this->runSQL("SELECT * FROM article WHERE articleid = $id");
+       if ($result != null)
+       {
+           $row = $result->fetch_assoc();
+           return $row;
+       }
+
+       return null;
+   }
+
    function deleteArticle($id)
    {
 
