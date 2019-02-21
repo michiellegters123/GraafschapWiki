@@ -5,6 +5,8 @@ include "../../include/views/Header.php";
 include "../../include/views/Admin.php";
 require_once "../../include/lib/UsersDatabase.php";
 
+
+
 $id = $_POST["id"];
 $rank = $_POST["rank"];
 $username = $_POST["username"];

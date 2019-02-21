@@ -50,7 +50,7 @@ $dbo->refreshCurrentUser();
 
             <div class="SideBar">                       <!--Start sidebar-->
                 <div class="DivLogo">
-                    <img src="<?php echo $WWW_ROOT . "res/img/logoGC.png" ?>">
+                    <a href="../../index.php"><img src="<?php echo $WWW_ROOT . "res/img/logoGC.png" ?>"></a>
                 </div>
                 <div class="DivLinkjes">
                     <ul>
@@ -75,6 +75,7 @@ $dbo->refreshCurrentUser();
                             echo "niet ingeloged"
                         ?>
                     </li>
+
                     <li><a href=" <?php echo $WWW_ROOT . "p/login/inloggen.php"; ?> ">Inloggen</a></li>
                     <li><a href="<?php echo $WWW_ROOT . "p/login/registreren.php"; ?> ">Aanmelden</a></li>
                     <?php
@@ -94,8 +95,10 @@ $dbo->refreshCurrentUser();
                     echo $PAGE_OPTIONS;
                     ?>
                 </ul>
-
-
+                <form style="float: right; margin-top: 4%" method="post" action="Page/Article/SearchArticle.php">
+                    <input type="text" style="width: 200px" name="zoekBalk" placeholder="Artikel Zoeken">
+                    <input type="submit">
+                </form>
             </div>                                          <!--Einde head-->
 
             <div class="Content">

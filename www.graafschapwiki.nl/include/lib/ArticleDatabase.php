@@ -147,4 +147,20 @@ class ArticleDatabase extends DataBase
    {
 
    }
+
+    function addArticle($title)
+    {
+        $this->runSQL("INSERT INTO article (title) VALUE '$title'");
+    }
+
+    function searchArticle($title)
+    {
+        $result = $this->runSQL("SELECT title FROM article WHERE title LIKE '%$title%'");
+
+        if($result)
+        {
+            $title = $result->fetch_assoc()['title'];
+            return $title;
+        }
+    }
 }

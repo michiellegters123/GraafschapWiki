@@ -35,7 +35,7 @@ if(isset($_POST["password"]) && isset($_POST["email"]))
     $dbo = UsersDatabase::getInstance();
 
     $username = isset($_POST['username']) ? $_POST['username'] : "";
-    $result = $dbo->register($username, $_POST["email"], $_POST["password"]);
+    $result = $dbo->register(htmlspecialchars($username), htmlspecialchars($_POST["email"]) , $_POST["password"]);
     if($result === true)
         loginSucess();
     else
