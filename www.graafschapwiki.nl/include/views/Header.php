@@ -75,7 +75,7 @@ $dbo->refreshCurrentUser();
                             echo "niet ingeloged"
                         ?>
                     </li>
-                    <li><a href=" <?php echo $WWW_ROOT . "Page/Login/inloggen.php"; ?> ">Inloggen</a></li>
+                    <li><a href=" <?php echo $WWW_ROOT . "Page/Login/Inloggen.php"; ?> ">Inloggen</a></li>
                     <li><a href="<?php echo $WWW_ROOT . "Page/Login/registreren.php"; ?> ">Aanmelden</a></li>
                     <?php
 
@@ -83,7 +83,7 @@ $dbo->refreshCurrentUser();
                     {
                         if ($_SESSION["user"]["privilege"] >= $privilege["admin"])
                         {
-                            echo "<li><a href='" . $WWW_ROOT . "Page/Admin/admininterface.php" . "'>Admin Interface</a></li>";
+                            echo "<li><a href='" . $WWW_ROOT . "Page/Admin/adminInterface.php" . "'>Admin Interface</a></li>";
                         }
                     }
 

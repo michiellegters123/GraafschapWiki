@@ -8,7 +8,7 @@ class ArticleDatabase extends DataBase
 
     public function __construct()
     {
-        parent::__construct("localhost", "gcwiki", "root", "");
+        parent::__construct("db.legters.org", "md250598db461338", "md250598db461338", "pikhoofd");
     }
 
     public static function getInstance()
