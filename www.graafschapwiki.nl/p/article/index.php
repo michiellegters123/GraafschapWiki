@@ -10,6 +10,7 @@ $PAGE_OPTIONS = "
     <li class='Active'>Read</li>
     <li class='Inactive'><form id='EditFrm' action='edit.php'><input type='hidden' name='article' value='". (isset($_GET["article"]) ? $_GET["article"] : "") ."'></form>
      <a onclick=\"document.getElementById('EditFrm').submit();\">Edit</a></li>
+     <li class='Inactive'><a href='edit.php'>New</a></li>
     ";
 
 if (isset($_GET["article"]))

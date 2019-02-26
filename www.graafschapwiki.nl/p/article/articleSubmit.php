@@ -39,7 +39,6 @@ foreach ($_POST as $key => $item)
                     $paragraf->addSub(new SubParagraph($_POST[$titleKey], $_POST[$contentKey]));
                     $sNum++;
                 }
-
             }
         }
     }
@@ -51,6 +50,7 @@ $isApproved = $_SESSION["user"]["privilege"] >= $privilege["edit"] ? true : fals
 $querry =  $newArticle->generateQuerry(false, $_POST["id"], $_SESSION["user"]["userid"]);
 $result = $dbo->getConnection()->multi_query($querry);
 
+echo $querry;
 
 if($result)
 {

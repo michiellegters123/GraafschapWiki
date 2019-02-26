@@ -115,6 +115,13 @@ class Article
                     VALUES('$this->title', '$this->intro', $verified, $target, '$author');
                     ";
 
+        if($target == -1)
+        {
+            $sql = "INSERT INTO article(title, intro, verified, author)
+                    VALUES('$this->title', '$this->intro', $verified, '$author');
+                    ";
+        }
+
         foreach ($this->paragraphs as $item)
         {
             $sql .= $item->generateQuerry();
