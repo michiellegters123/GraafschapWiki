@@ -36,117 +36,126 @@ class ArticleDatabase extends DataBase
         return $article;
     }
 
-   private function getTitle($id)
-   {
-       $result = $this->runSQL("SELECT title FROM article WHERE articleid = '$id';");
-       if($result)
-       {
-           $title = $result->fetch_assoc()['title'];
-           return $title;
-       }
-       else
-       {
-           return "fail lol";
-       }
-   }
+    private function getTitle($id)
+    {
+        $result = $this->runSQL("SELECT title FROM article WHERE articleid = '$id';");
+        if ($result)
+        {
+            $title = $result->fetch_assoc()['title'];
+            return $title;
+        }
+        else
+        {
+            return "fail lol";
+        }
+    }
 
-   private function getIntro($id)
-   {
-       $result = $this->runSQL("SELECT intro FROM article WHERE articleid = '$id'");
-       if($result)
-       {
-           $title = $result->fetch_assoc()['intro'];
-           return $title;
-       }
-       else
-       {
-           return "fail lol";
-       }
-   }
+    private function getIntro($id)
+    {
+        $result = $this->runSQL("SELECT intro FROM article WHERE articleid = '$id'");
+        if ($result)
+        {
+            $title = $result->fetch_assoc()['intro'];
+            return $title;
+        }
+        else
+        {
+            return "fail lol";
+        }
+    }
 
-   private function getParagraphs($id)
-   {
-       $result = $this->runSQL("SELECT title, paragraphid FROM paragraph WHERE article = '$id'");
-       if($result)
-       {
-           $arr = array();
-           while ($row = $result->fetch_assoc())
-           {
-               $paragraph = new Paragraph($row['title']);
-               $pId = $row["paragraphid"];
-               $subresult = $this->runSQL("SELECT title, content FROM subparagraph WHERE paragraph = '$pId'");
+    private function getParagraphs($id)
+    {
+        $result = $this->runSQL("SELECT title, paragraphid FROM paragraph WHERE article = '$id'");
+        if ($result)
+        {
+            $arr = array();
+            while ($row = $result->fetch_assoc())
+            {
+                $paragraph = new Paragraph($row['title']);
+                $pId = $row["paragraphid"];
+                $subresult = $this->runSQL("SELECT title, content FROM subparagraph WHERE paragraph = '$pId'");
 
-               while ($subrow = $subresult->fetch_assoc())
-               {
-                   $paragraph->addSub(new SubParagraph($subrow['title'], $subrow['content']));
-               }
+                while ($subrow = $subresult->fetch_assoc())
+                {
+                    $paragraph->addSub(new SubParagraph($subrow['title'], $subrow['content']));
+                }
 
-               array_push($arr, $paragraph);
+                array_push($arr, $paragraph);
 
-           }
-           return $arr;
-       }
-       else
-       {
-           return "fail lol";
-       }
-   }
+            }
+            return $arr;
+        }
+        else
+        {
+            return "fail lol";
+        }
+    }
 
-   function getArticleIdList()
-   {
-       $result = $this->runSQL("SELECT articleid, title, intro FROM article WHERE verified = 1");
-       $ids = array();
+    function getArticleIdList()
+    {
+        $result = $this->runSQL("SELECT articleid, title, intro FROM article WHERE verified = 1");
+        $ids = array();
 
-       while ($row = $result->fetch_assoc())
-       {
-           $article = array
-           (
-               "title" => $row["title"],
-               "id" => $row["articleid"],
-               "intro" => explode(".", $row["intro"],2)[0]. "."
-           );
-           array_push($ids, $article);
-       }
+        while ($row = $result->fetch_assoc())
+        {
+            $article = array
+            (
+                "title" => $row["title"],
+                "id" => $row["articleid"],
+                "intro" => explode(".", $row["intro"], 2)[0] . "."
+            );
+            array_push($ids, $article);
+        }
 
-       return $ids;
-   }
+        return $ids;
+    }
 
-   function getUnverifiedArticles()
-   {
-       $result = $this->runSQL("SELECT articleid, title, intro, author FROM article WHERE verified = 0");
-       $ids = array();
+    function getUnverifiedArticles()
+    {
+        $result = $this->runSQL("SELECT articleid, title, intro, author FROM article WHERE verified = 0");
+        $ids = array();
 
-       while ($row = $result->fetch_assoc())
-       {
-           $article = array
-           (
-               "title" => $row["title"],
-               "id" => $row["articleid"],
-               "author" => $row["author"],
-               "intro" => explode(".", $row["intro"],2)[0]. "."
-           );
-           array_push($ids, $article);
-       }
+        while ($row = $result->fetch_assoc())
+        {
+            $article = array
+            (
+                "title" => $row["title"],
+                "id" => $row["articleid"],
+                "author" => $row["author"],
+                "intro" => explode(".", $row["intro"], 2)[0] . "."
+            );
+            array_push($ids, $article);
+        }
 
-       return $ids;
-   }
+        return $ids;
+    }
 
-   function getArticleId($id)
-   {
-       $result = $this->runSQL("SELECT * FROM article WHERE articleid = $id");
-       if ($result != null)
-       {
-           $row = $result->fetch_assoc();
-           return $row;
-       }
+    function getArticleId($id)
+    {
+        $result = $this->runSQL("SELECT * FROM article WHERE articleid = $id");
+        if ($result != null)
+        {
+            $row = $result->fetch_assoc();
+            return $row;
+        }
 
-       return null;
-   }
+        return null;
+    }
 
-   function deleteArticle($id)
-   {
+    function deleteArticle($id)
+    {
+        $paragraphs = $this->runSQL("SELECT paragraphid FROM paragraph WHERE article = '$id'");
 
-   }
+        while ($row = $paragraphs->fetch_assoc())
+        {
+            $subid = $row["paragraphid"];
+            $this->runSQL("DELETE FROM subparagraph WHERE paragraph = '$subid'");
+        }
+
+        $this->runSQL("DELETE FROM paragraph WHERE article = '$id'");
+        $this->runSQL("DELETE FROM article WHERE articleid = '$id'");
+    }
 
     function addArticle($title)
     {
@@ -157,10 +166,24 @@ class ArticleDatabase extends DataBase
     {
         $result = $this->runSQL("SELECT title FROM article WHERE title LIKE '%$title%'");
 
-        if($result)
+        if ($result)
         {
             $title = $result->fetch_assoc()['title'];
             return $title;
         }
     }
+
+    function approve($id)
+    {
+        $target = $this->runSQL("SELECT target FROM article WHERE articleid = '" . $id . "'")->fetch_assoc()["target"];
+
+        if ($target != -1)
+        {
+            $this->deleteArticle($target);
+        }
+
+        $this->runSQL("UPDATE article SET verified='1', target ='-1' WHERE articleid = '$id'");
+
+    }
+
 }
