@@ -50,7 +50,6 @@ $isApproved = $_SESSION["user"]["privilege"] >= $privilege["edit"] ? true : fals
 $querry =  $newArticle->generateQuerry(false, $_POST["id"], $_SESSION["user"]["userid"]);
 $result = $dbo->getConnection()->multi_query($querry);
 
-echo $querry;
 
 if($result)
 {

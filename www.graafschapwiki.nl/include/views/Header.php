@@ -76,9 +76,17 @@ $dbo->refreshCurrentUser();
                         ?>
                     </li>
 
-                    <li><a href=" <?php echo $WWW_ROOT . "p/login/inloggen.php"; ?> ">Inloggen</a></li>
-                    <li><a href="<?php echo $WWW_ROOT . "p/login/registreren.php"; ?> ">Aanmelden</a></li>
                     <?php
+                    if(isset ($_SESSION["user"]))
+                    {
+                        echo "<li><a href='".$WWW_ROOT."p/article/edit.php'>Nieuw Artikel</a></li>";
+
+                    }
+                    else
+                    {
+                        echo "<li><a href='".$WWW_ROOT."p/login/inloggen.php'>Inloggen</a></li>";
+                        echo "<li><a href='".$WWW_ROOT."p/login/registreren.php'>Registreren</a></li>";
+                    }
 
                     if (isset($_SESSION["user"]))
                     {

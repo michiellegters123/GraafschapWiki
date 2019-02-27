@@ -182,7 +182,7 @@ class ArticleDatabase extends DataBase
             $this->deleteArticle($target);
         }
 
-        $this->runSQL("UPDATE article SET verified='1', target ='-1' WHERE articleid = '$id'");
+        $this->runSQL("UPDATE article SET `verified` = 1, `target` = -1 WHERE articleid = '$id'");
 
     }
 

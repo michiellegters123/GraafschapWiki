@@ -23,6 +23,8 @@ else
 {
     $remove = ArticleDatabase::getInstance()->deleteArticle($Id);
 }
+echo "<script>window.history.back();</script>";
 include "../../include/views/Footer.php";
+
 
 ?>
