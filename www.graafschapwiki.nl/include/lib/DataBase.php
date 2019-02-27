@@ -8,8 +8,8 @@ class DataBase
     private $m_database;
     private $m_connection;
 
-    public function __construct(string $serverName = "db.legters.org", string $database = "md250598db461338",
-        string $username = "md250598db461338", string $password = "pikhoofd")
+    public function __construct(string $serverName = "localhost", string $database = "gcwiki",
+        string $username = "root", string $password = "")
     {
         $this->m_serverName = $serverName;
         $this->m_username = $username;
